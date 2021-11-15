@@ -12,7 +12,7 @@ public class GUI {
     }
 
     public Philosopher[] LoadPhilosophers(){
-        return new Philosopher[]{new Socrates(),new Nietzsche(),new Aquinas()};
+        return new Philosopher[]{new Socrates(), new Nietzsche(), new Aquinas()};
     }
 
     public int SelectPhilosopher(){
@@ -20,7 +20,9 @@ public class GUI {
         for(int i=0;i< philosophers.length;i++){
             System.out.println("Press " +(i+1) +" for " +philosophers[i].name);
         }
-        return (Integer.parseInt(scanner.nextLine())-1);
+        if(scanner.hasNextLine())
+            return (Integer.parseInt(scanner.nextLine())-1);
+        else return 0;
     }
     public void PrintQuote(int index){
         System.out.println(philosophers[index].name +" was a great philosopher with memorable quotes, such as:\r\n"
