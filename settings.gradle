@@ -1,3 +1,2 @@
-rootProject.name = "Philosopher's Queries"
-include 'src'
+rootProject.name = 'Philosopher_quotes'
 
