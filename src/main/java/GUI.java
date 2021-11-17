@@ -3,8 +3,6 @@ import java.util.Scanner;
 
 public class GUI {
     Philosopher[] philosophers = LoadPhilosophers();
-    Scanner scanner = new Scanner(System.in);
-    Random rng = new Random();
 
     public GUI(){
         int selectedPhilosopherIndex = SelectPhilosopher();
@@ -16,6 +14,7 @@ public class GUI {
     }
 
     public int SelectPhilosopher(){
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Select a philosopher:");
         for(int i=0;i< philosophers.length;i++){
             System.out.println("Press " +(i+1) +" for " +philosophers[i].name);
@@ -25,7 +24,8 @@ public class GUI {
         else return 0;
     }
     public void PrintQuote(int index){
-        System.out.println(philosophers[index].name +" was a great philosopher with memorable quotes, such as:\r\n"
-                +"'" +philosophers[index].quotes.get(rng.nextInt(3)) +"'");
+        Random rng = new Random();
+        System.out.println(philosophers[index].name +" (born " +philosophers[index].birthday +", died " +philosophers[index].deathday +")"
+                +" was a great philosopher with memorable quotes, such as:\r\n" +"'" +philosophers[index].quotes.get(rng.nextInt(3)) +"'");
     }
 }
